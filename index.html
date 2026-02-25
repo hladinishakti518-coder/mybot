@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VERA YOGA: PRO тазовое дно — Онлайн-курс</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { DEFAULT: '#0d9488', light: '#5eead4' },
+            surface: '#fdf2f8',
+            ink: '#1f2937',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Фиксированная CTA только на мобильных, не перекрывать контент */
+    @media (min-width: 768px) { .cta-fixed { display: none !important; } }
+    @media (max-width: 767px) { body { padding-bottom: 5rem; } }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- Минималистичное меню -->
+  <header class="sticky top-0 z-40 bg-black text-white">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-14 md:h-16">
+      <a href="/" class="font-semibold text-lg">#sekta</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="hover:opacity-80">О проекте</a>
+        <a href="#course" class="hover:opacity-80">Курсы</a>
+        <a href="#contacts" class="hover:opacity-80">Контакты</a>
+      </nav>
+      <a href="tel:88003501489" class="text-sm whitespace-nowrap">8 800 350-14-89</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4">
+
+    <!-- Крупный заголовок с оффером -->
+    <section class="py-10 md:py-16 lg:py-20">
+      <div class="bg-[#fdf2f8] rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-14 relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl">
+          <p class="text-sm font-medium text-gray-600 mb-2">Фокусный онлайн-курс</p>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
+            VERA YOGA: PRO тазовое дно
+          </h1>
+          <p class="text-base md:text-lg text-gray-700 mb-8">
+            18 тренировок для женщин. Укрепление тазового дна, подтянутый живот, правильное дыхание.
+          </p>
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="flex items-baseline gap-1">
+              <span class="text-2xl md:text-3xl font-bold">3 990 ₽</span>
+              <span class="text-gray-600">/ 3 недели</span>
+            </div>
+            <a href="#cta" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 transition shadow-lg">
+              Записаться на курс
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Короткий блок «Для кого» -->
+    <section id="about" class="py-10 md:py-14">
+      <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-6">Для кого этот курс</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div class="p-4 md:p-5 rounded-xl border border-gray-200 bg-white">
+          <h3 class="font-semibold text-gray-900 mb-2">Подтянутый живот</h3>
+          <p class="text-sm text-gray-600">Комплексная работа с дыханием и тазовым дном, а не только пресс.</p>
+        </div>
+        <div class="p-4 md:p-5 rounded-xl border border-gray-200 bg-white">
+          <h3 class="font-semibold text-gray-900 mb-2">Укрепление тазового дна</h3>
+          <p class="text-sm text-gray-600">Тонус, согласованность с дыханием, улучшение самочувствия.</p>
+        </div>
+        <div class="p-4 md:p-5 rounded-xl border border-gray-200 bg-white sm:col-span-2 lg:col-span-1">
+          <h3 class="font-semibold text-gray-900 mb-2">Забота о себе</h3>
+          <p class="text-sm text-gray-600">Время на себя и привычка заниматься здоровьем.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Программа курса — компактные карточки -->
+    <section id="course" class="py-10 md:py-14">
+      <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-6">Программа курса</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        <article class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center text-teal-600 mb-3 text-xl">🕐</div>
+          <h3 class="font-semibold text-gray-900 text-sm md:text-base mb-1">До 20 минут в день</h3>
+          <p class="text-xs md:text-sm text-gray-600">Короткие ежедневные тренировки, привычка к активности.</p>
+        </article>
+        <article class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center text-teal-600 mb-3 text-xl">🏋</div>
+          <h3 class="font-semibold text-gray-900 text-sm md:text-base mb-1">Силовые тренировки</h3>
+          <p class="text-xs md:text-sm text-gray-600">Пресс, внутренняя поверхность бедра, ягодицы, кор.</p>
+        </article>
+        <article class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center text-teal-600 mb-3 text-xl">〰️</div>
+          <h3 class="font-semibold text-gray-900 text-sm md:text-base mb-1">Дыхание</h3>
+          <p class="text-xs md:text-sm text-gray-600">Правильное дыхание и работа глубоких мышц.</p>
+        </article>
+        <article class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center text-teal-600 mb-3 text-xl">↻</div>
+          <h3 class="font-semibold text-gray-900 text-sm md:text-base mb-1">Подвижность позвоночника</h3>
+          <p class="text-xs md:text-sm text-gray-600">Комплексы для спины и координации.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Дополнительный блок (опционально): оффер + контакты -->
+    <section id="contacts" class="py-10 md:py-14 border-t border-gray-200">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-2">Запишитесь сейчас — начните в любой день</h2>
+          <p class="text-gray-600 text-sm">Курс без куратора · 3 990 ₽ / 3 недели</p>
+        </div>
+        <a href="#cta" id="cta" class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-gray-900 hover:bg-gray-800 transition shrink-0">
+          Записаться на курс
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Фиксированная CTA внизу для мобильных -->
+  <div class="cta-fixed fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+    <a href="#cta" class="block w-full py-3.5 rounded-xl font-semibold text-center text-white bg-gradient-to-r from-teal-500 to-teal-600">
+      Записаться на курс — 3 990 ₽
+    </a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Secrets & credentials
+course_bot/google_creds.json
+*.json.secret
+
+# Database
+course_bot.db
+course_bot/course_bot.db
+
+# Environment
+.env
+course_bot/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+
+# Node
+node_modules/
+.next/
+
+# Claude
+.claude/
+
+# OS
+.DS_Store
