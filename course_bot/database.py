@@ -39,6 +39,14 @@ async def init_db():
                 FOREIGN KEY (user_id) REFERENCES users(tg_id)
             )
         """)
+        await db.execute("""
+            CREATE TABLE IF NOT EXISTS payments (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT UNIQUE,
+                amount TEXT,
+                paid_at TEXT
+            )
+        """)
         await db.commit()
 
 async def add_user(tg_id, username, full_name, email, phone, payment_date, access_end_date):
@@ -108,6 +116,25 @@ async def get_active_users_for_lessons():
         ) as cursor:
             rows = await cursor.fetchall()
             return [(row[0], row[1]) for row in rows]
+
+# --- Работа с оплатами ---
+async def add_payment(email: str, amount: str):
+    paid_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    async with aiosqlite.connect(DB_NAME) as db:
+        await db.execute(
+            "INSERT OR REPLACE INTO payments (email, amount, paid_at) VALUES (?, ?, ?)",
+            (email.lower(), amount, paid_at)
+        )
+        await db.commit()
+
+async def get_payment(email: str):
+    async with aiosqlite.connect(DB_NAME) as db:
+        async with db.execute(
+            "SELECT email, amount, paid_at FROM payments WHERE email = ?",
+            (email.lower(),)
+        ) as cursor:
+            return await cursor.fetchone()
+
 
 # --- Работа с уроками ---
 async def was_lesson_sent(user_id, lesson_id):

@@ -8,7 +8,7 @@ from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery, ChatJoinRequest
 from aiogram.fsm.context import FSMContext
 from config import PRODAMUS_SECRET_KEY, COURSE_DURATION_DAYS, CHANNEL_ID, CHAT_ID, ADMIN_IDS
-from database import add_user, get_user
+from database import add_user, get_user, add_payment, get_payment
 from services.sheets import add_user_to_sheet
 from keyboards import main_menu
 
@@ -62,7 +62,10 @@ async def handle_prodamus_webhook(data: dict, bot: Bot) -> bool:
 
         logging.info(f"Payment received from {email}, sum: {amount}")
 
-        # 3. Записываем в Google Sheet (без tg_id — пользователь ещё не активировался)
+        # 3. Сохраняем оплату в БД
+        await add_payment(email, amount)
+
+        # 4. Записываем в Google Sheet (без tg_id — пользователь ещё не активировался)
         try:
             sheet_data = {
                 'date': datetime.now().strftime("%Y-%m-%d"),
@@ -112,6 +115,16 @@ async def cmd_activate(message: Message):
         # Валидация email
         if not EMAIL_REGEX.match(email):
             await message.answer("❌ Некорректный email. Проверь формат: имя@домен.зона")
+            return
+
+        # Проверка оплаты
+        payment = await get_payment(email)
+        if not payment:
+            await message.answer(
+                "❌ Оплата с этим email не найдена.\n\n"
+                "Убедись, что указал тот же email, что и при оплате. "
+                "Если только что оплатил — подожди пару минут и попробуй снова."
+            )
             return
 
         # Добавляем пользователя

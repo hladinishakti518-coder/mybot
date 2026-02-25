@@ -12,12 +12,12 @@
 |-----------|--------|----------|
 | Лендинг | ✅ | Next.js, Hero, CourseCards, CTA |
 | Бот: старт | ✅ | /start, /activate, /test_pay |
-| Бот: оплата | ⚠️ | /activate по email, webhook Prodamus (заглушка) |
+| Бот: оплата | ✅ | /activate по email с проверкой payments, webhook Prodamus + aiohttp |
 | Бот: ДЗ | ✅ | /hw, приём видео, пересылка куратору |
 | Бот: обратная связь | ✅ | feedback handler |
 | Scheduler | ✅ | Проверка доступа, напоминания |
 | Google Sheets | ⚠️ | add_user_to_sheet есть, вызов закомментирован |
-| Выдача уроков | ❌ | Нет — уроки не отправляются по расписанию |
+| Выдача уроков | ✅ | lessons.py — рассылка по schedule.json, дедупликация через lesson_progress |
 
 ---
 
